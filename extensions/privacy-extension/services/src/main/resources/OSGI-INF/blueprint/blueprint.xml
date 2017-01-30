@@ -45,5 +45,5 @@
         <property name="defaultDeniedProperties" value="${defaultDeniedProperties}" />
         <property name="bundleContext" ref="blueprintBundleContext"/>
     </bean>
-    <service id="privacyService" ref="privacyServiceImpl" auto-export="interfaces"/>
+    <service id="privacyService" ref="privacyServiceImpl" interface="org.apache.unomi.api.services.PrivacyService"/>
 </blueprint>

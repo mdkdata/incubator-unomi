@@ -42,7 +42,12 @@
         <property name="profileIdCookieDomain" value="${web.contextserver.domain}" />
     </bean>
 
-    <service id="contextServletService" auto-export="interfaces" ref="contextServlet">
+    <service id="contextServletService" ref="contextServlet">
+        <interfaces>
+            <value>javax.servlet.Servlet</value>
+            <value>javax.servlet.ServletConfig</value>
+            <value>java.io.Serializable</value>
+        </interfaces>
         <service-properties>
             <entry key="urlPatterns">
                 <array value-type="java.lang.String">
@@ -58,7 +63,12 @@
         <property name="eventService" ref="eventService"/>
         <property name="privacyService" ref="privacyService" />
     </bean>
-    <service id="eventsCollectorServletService" auto-export="interfaces" ref="eventsCollectorServlet">
+    <service id="eventsCollectorServletService" ref="eventsCollectorServlet">
+        <interfaces>
+            <value>javax.servlet.Servlet</value>
+            <value>javax.servlet.ServletConfig</value>
+            <value>java.io.Serializable</value>
+        </interfaces>
         <service-properties>
             <entry key="urlPatterns" value="/eventcollector"/>
         </service-properties>
