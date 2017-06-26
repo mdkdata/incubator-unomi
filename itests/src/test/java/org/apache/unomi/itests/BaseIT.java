@@ -44,7 +44,7 @@ public abstract class BaseIT {
         MavenArtifactUrlReference karafUrl = maven()
                 .groupId("org.apache.karaf")
                 .artifactId("apache-karaf")
-                .version("3.0.8")
+                .version("4.1.1")
                 .type("tar.gz");
 
         MavenUrlReference karafStandardRepo = maven()
@@ -92,6 +92,7 @@ public abstract class BaseIT {
                 systemProperty("org.ops4j.pax.exam.rbc.rmi.port").value("1199"),
                 systemProperty("org.apache.unomi.itests.elasticsearch.transport.port").value("9500"),
                 systemProperty("org.apache.unomi.itests.elasticsearch.http.port").value("9400"),
+                features(karafStandardRepo, "wrap"),
                 features(karafPaxWebRepo, "war"),
                 features(karafCxfRepo, "cxf"),
                 features(karafCellarRepo, "cellar"),
